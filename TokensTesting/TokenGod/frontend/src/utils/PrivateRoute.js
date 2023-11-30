@@ -6,10 +6,10 @@ import LoginPage from '../pages/LoginPage'
 
 export const PrivateRoute = ({children, ...rest}) => {
     console.log("private route is working ..")
-    const Authenticated = true
+    const Authenticated = false
     return (
         <Routes>
-            <Route {...rest}>{!Authenticated ? children :children}</Route>
+            <Route {...rest}>{!Authenticated ? children : children[1]}</Route>
 
         </Routes>
         

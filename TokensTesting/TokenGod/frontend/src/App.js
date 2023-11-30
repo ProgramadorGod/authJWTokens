@@ -18,13 +18,11 @@ function App() {
         
         <Header/>        
         <PrivateRoute>
+          <Route element={<LoginPage/>} path='/'/>
           <Route element={<HomePage/>} path='/'/>
-          
         </PrivateRoute>
         <Routes>
           <Route path='/Login' element={<LoginPage/>}/>
-          
-
         </Routes>
       </Router>
     </div>
