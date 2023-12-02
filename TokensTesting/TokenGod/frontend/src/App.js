@@ -2,6 +2,8 @@ import './App.css';
 import Header from './components/Header';
 import HomePage from './pages/HomePage'
 import { PrivateRoute } from './utils/PrivateRoute';
+import { AuthProvider } from './context/AuthContext';
+
 import {
   BrowserRouter as Router,
   Switch,
@@ -15,7 +17,8 @@ function App() {
   return (
     <div className="App">
       <Router>
-        
+        <AuthProvider>
+
         <Header/>        
         <PrivateRoute>
           <Route element={<LoginPage/>} path='/'/>
@@ -24,7 +27,10 @@ function App() {
         <Routes>
           <Route path='/Login' element={<LoginPage/>}/>
         </Routes>
+        </AuthProvider>
+
       </Router>
+
     </div>
   );
 }
