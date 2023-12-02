@@ -1,11 +1,10 @@
 import React from 'react'
-import { redirect } from 'react-router-dom'
+import { Navigate, redirect } from 'react-router-dom'
 
 const HomePage = () => {
-  redirect("/Login")
   return (
     <div>
-        <redirect to="/Login"></redirect>
+        <Navigate to="/"/>
         <p>You're logged in the home page</p>
     </div>
   )

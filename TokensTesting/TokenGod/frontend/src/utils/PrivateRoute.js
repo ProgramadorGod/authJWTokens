@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link, Route, Routes, redirect } from 'react-router-dom'
+import { Link, Navigate, Route, Routes, redirect } from 'react-router-dom'
 import LoginPage from '../pages/LoginPage'
 
 
@@ -7,11 +7,11 @@ import LoginPage from '../pages/LoginPage'
 export const PrivateRoute = ({children, ...rest}) => {
     console.log("private route is working ..")
 
-    const Authenticated = true
-
+    const Authenticated = false
+    
     return (
         <Routes>
-            <Route {...rest}>{!Authenticated ? children : children[1] }</Route>
+            <Route {...rest}>{!Authenticated ? children[0] : children[1] }</Route>
 
         </Routes>
         
