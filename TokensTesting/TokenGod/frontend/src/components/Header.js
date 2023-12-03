@@ -9,13 +9,14 @@ import {
 import AuthContext from '../context/AuthContext';
 
 const Header = () => {
-  let {Name} = useContext(AuthContext)
+  let {user, logoutUser} = useContext(AuthContext)
   return (
     <div>
         <Link to="/">Home</Link>
         <span> | </span>
-        <Link to="/Login">Login</Link>
-        <p>Welcome {Name}</p>
+
+        {!user ? <Link to="/Login">Login</Link> : <Link to="/LogOut"> <Link to="/Login" onClick={logoutUser}>Log Out </Link></Link>}
+        {user ? <p>Welcome {user.username}</p> : <p> Please log in</p>}
     </div>
   )
 }

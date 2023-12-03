@@ -23,10 +23,13 @@ function App() {
         <Header/>        
         <PrivateRoute>
           <Route element={<Navigate to="/Login"/>} path='/'/>
+          <Route element={<Navigate to="/"/>} path='/Login'/>
           <Route element={<HomePage/>} path='/'/>
+
         </PrivateRoute>
         <Routes>
           <Route path='/Login' element={<LoginPage/>}/>
+
         </Routes>
 
         </AuthProvider>
