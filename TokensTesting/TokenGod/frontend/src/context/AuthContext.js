@@ -19,7 +19,7 @@ export const AuthProvider = ({children}) => {
     let [Loading, setLoading] = useState(true)
 
     let loginUser = async(e)=>{
-        
+        e.preventDefault()
         let response = await fetch("http://127.0.0.1:8000/api/token/",{
             method:"POST",
             headers:{
@@ -59,6 +59,7 @@ export const AuthProvider = ({children}) => {
     
     let contextData ={
         user:user,
+        logoutUser:logoutUser,
         authTokens:authTokens,
         loginUser:loginUser,
         logoutUser:logoutUser,
@@ -93,11 +94,12 @@ export const AuthProvider = ({children}) => {
     }
 
     useEffect(()=>{
+        let fourminutes = 1000 * 60 * 4 
         let interval = setInterval(()=>{
             if(authTokens){
                 updateToken()
             }
-        }, 20000)
+        }, fourminutes)
         return ()=> clearInterval(interval);
     }, [authTokens, Loading]);
 
